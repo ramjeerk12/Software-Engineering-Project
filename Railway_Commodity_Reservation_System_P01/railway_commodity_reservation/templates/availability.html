@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}<h2>Check route availability</h2><form method="post" class="card card-body mb-4"><div class="row g-3">
+<div class="col-md-3"><label class="form-label">Source</label><select name="source" class="form-select"><option value="">Any source</option>{% for s in stations %}<option {% if source==s %}selected{% endif %}>{{s}}</option>{% endfor %}</select></div>
+<div class="col-md-3"><label class="form-label">Destination</label><select name="destination" class="form-select"><option value="">Any destination</option>{% for s in stations %}<option {% if destination==s %}selected{% endif %}>{{s}}</option>{% endfor %}</select></div>
+<div class="col-md-3"><label class="form-label">Travel date</label><input class="form-control" type="date" name="travel_date" value="{{travel_date}}" min="{{''}}" required></div>
+<div class="col-md-3 d-flex align-items-end"><button class="btn btn-primary w-100">Search availability</button></div></div></form>
+{% if results %}<h4>Results for {{travel_date}}</h4><div class="table-responsive"><table class="table table-striped"><thead><tr><th>Route</th><th>Service</th><th>Departure</th><th>Rate / tonne</th><th>Remaining capacity</th><th></th></tr></thead><tbody>
+{% for r in results %}<tr><td>{{r.source}} → {{r.destination}}</td><td>{{r.service_type}}</td><td>{{r.departure}}</td><td>₹{{"%.2f"|format(r.rate_per_ton)}}</td><td>{{"%.2f"|format(r.remaining)}} t</td><td>{% if r.remaining>0 %}<a class="btn btn-sm btn-success" href="/book/{{r.id}}">Book</a>{% else %}<span class="badge bg-danger">Full</span>{% endif %}</td></tr>{% endfor %}
+</tbody></table></div>{% elif request.method=='POST' %}<p>No matching routes found.</p>{% endif %}{% endblock %}

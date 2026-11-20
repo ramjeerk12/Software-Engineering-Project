@@ -1,0 +1,7 @@
+body { background:#f5f7fb; min-height:100vh; }
+.navbar-brand { letter-spacing:.3px; }
+.hero { color:white; background:linear-gradient(120deg,#142b52,#176b87); }
+.form-card { max-width:560px; margin:25px auto; padding:28px; background:white; border-radius:16px; box-shadow:0 8px 28px #142b5214; }
+.stat-card { background:white; border-radius:14px; padding:22px; box-shadow:0 4px 18px #142b5210; }
+.card { border:0; border-radius:14px; }
+footer { margin-top:45px; }

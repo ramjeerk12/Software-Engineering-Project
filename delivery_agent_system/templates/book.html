@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}<h1>Book a delivery</h1><p class="muted">The system automatically selects an available courier using locality, price and rating.</p>
+<form method="post" class="panel form-grid">
+<label>Sender name<input name="sender_name" required value="{{ data.get('sender_name','') }}"></label>
+<label>Receiver name<input name="receiver_name" required value="{{ data.get('receiver_name','') }}"></label>
+<label>Shipping source / locality<input name="source" required value="{{ data.get('source','') }}"></label>
+<label>Destination locality<input name="destination" required value="{{ data.get('destination','') }}" placeholder="e.g. Bhagalpur"></label>
+<label class="wide">Package details<input name="package_details" required value="{{ data.get('package_details','') }}" placeholder="e.g. Books, 1.2 kg"></label>
+<label class="wide">Scheduled delivery date and time<input type="datetime-local" name="scheduled_at" required value="{{ data.get('scheduled_at','') }}"></label>
+<div class="wide"><button>Confirm booking</button></div></form>{% endblock %}

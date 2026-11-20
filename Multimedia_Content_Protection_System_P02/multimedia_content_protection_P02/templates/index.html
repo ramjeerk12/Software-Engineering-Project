@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}<section class="hero p-5 rounded-4">
+<span class="badge bg-info text-dark mb-3">P02 · Multimedia Content Protection</span><h1 class="display-5 fw-bold">Your files. Your key. Your control.</h1>
+<p class="lead">Encrypt and manage personal documents, audio, video, images and other files in a password-protected vault.</p>
+<a href="/register" class="btn btn-light btn-lg">Create account</a> <a href="/login" class="btn btn-outline-light btn-lg">Login</a></section>
+<div class="row g-3 mt-3">{% for title,desc in [('AES-256-GCM','Authenticated encryption protects file contents and detects tampering.'),('Owner-only access','Each account can manage only its own protected documents.'),('Three-strike lockout','Three failed document-operation password checks lock the account.'),('Encrypted copies','Copy a protected file without decrypting it.') ] %}
+<div class="col-md-6"><div class="feature"><h5>{{title}}</h5><p class="text-muted mb-0">{{desc}}</p></div></div>{% endfor %}</div>
+<p class="small text-muted mt-4">Academic prototype only. Do not use for your only copy of important data. Keep independent backups.</p>{% endblock %}

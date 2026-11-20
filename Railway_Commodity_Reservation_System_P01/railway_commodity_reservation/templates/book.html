@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}<div class="form-card"><h2>Book transportation</h2><div class="alert alert-light">{{route.source}} → {{route.destination}} · {{route.service_type}} · ₹{{route.rate_per_ton}} per tonne · Capacity {{route.capacity_tons}} tonnes</div>
+<form method="post"><label class="form-label">Travel date</label><input class="form-control mb-3" type="date" name="travel_date" min="{{''}}" required>
+<label class="form-label">Commodity name / type</label><input class="form-control mb-3" name="commodity" placeholder="e.g. Rice, Cement, Steel" required>
+<label class="form-label">Weight (tonnes)</label><input class="form-control mb-3" type="number" name="weight" min="0.01" step="0.01" required>
+<p class="text-muted">Total fare is calculated as weight × rate per tonne. Capacity is checked again when you submit.</p><button class="btn btn-success">Confirm booking</button></form></div>{% endblock %}

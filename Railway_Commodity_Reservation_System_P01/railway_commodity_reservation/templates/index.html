@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero p-5 rounded-4 mb-4"><h1 class="display-5 fw-bold">Railway Commodity Reservation System</h1>
+<p class="lead">Check cargo capacity, reserve rail transportation, and manage commodity bookings online.</p>
+<a class="btn btn-primary btn-lg" href="/availability">Check Availability</a> <a class="btn btn-outline-light btn-lg" href="/register">Get Started</a></section>
+<h2 class="mb-3">Available services</h2><div class="row g-3">{% for r in routes %}
+<div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><span class="badge bg-info text-dark">{{r.service_type}}</span>
+<h5 class="mt-2">{{r.source}} → {{r.destination}}</h5><p class="mb-1">Departure: {{r.departure}} · Arrival: {{r.arrival}}</p>
+<p class="mb-1">₹{{"%.2f"|format(r.rate_per_ton)}} / tonne</p><p class="text-muted">Daily capacity: {{r.capacity_tons}} tonnes</p>
+<a href="/availability" class="btn btn-sm btn-outline-primary">Check slots</a></div></div></div>{% endfor %}</div>{% endblock %}
